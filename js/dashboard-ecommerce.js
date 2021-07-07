@@ -1,12 +1,3 @@
-/*=========================================================================================
-    File Name: dashboard-ecommerce.js
-    Description: dashboard ecommerce page content with Apexchart Examples
-    ----------------------------------------------------------------------------------------
-    Item Name: Frest HTML Admin Template
-    Version: 1.0
-    Author: PIXINVENT
-    Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
 
 $(window).on("load", function () {
 
@@ -27,7 +18,7 @@ $(window).on("load", function () {
       type: "radialBar",
     },
     colors: [$primary, $danger, $warning],
-    series: [60, 49, 29],
+    series: [60, 52, 39],
     plotOptions: {
       radialBar: {
         offsetY: -10,
@@ -40,7 +31,7 @@ $(window).on("load", function () {
         },
         dataLabels: {
           name: {
-            fontSize: '15px',
+            fontSize: '12px',
             color: [$secondary],
             fontFamily: "IBM Plex Sans",
             offsetY: 25,
@@ -52,7 +43,11 @@ $(window).on("load", function () {
           },
           total: {
             show: true,
-            label: '',
+            label: 'Total',
+            formatter: function (w) {
+              // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+              return 32
+            },
             color: $secondary
           }
         }
@@ -61,7 +56,7 @@ $(window).on("load", function () {
     stroke: {
       lineCap: "round",
     },
-    labels: ['', '', '']
+    labels: ['SimpleLeak', 'Temperature sensor', 'Motion sensor']
   };
 
   var multiradialChart = new ApexCharts(
