@@ -744,10 +744,14 @@ $(document).ready(function () {
       }
     },
     yaxis: {
-      show: false
-    },
-    grid: {
-      show: false
+      min: 0,
+      max: 30,
+      tickAmount: 1,
+      labels: {
+        style: {
+          color: $gray_light
+        }
+      }
     }
   }
 
