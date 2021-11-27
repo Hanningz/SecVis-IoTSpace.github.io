@@ -49,7 +49,7 @@
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
                     //console.log(ta)
                     TemV.push(ta);  
-                    console.log(TemV)
+                    //console.log(TemV)
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
@@ -60,6 +60,8 @@
                     //console.log(TemV[i])
                     
                 }
+          console.log(TemV)
+          
         }
     }
         
