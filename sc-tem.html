@@ -41,8 +41,6 @@
       //console.log(num.length)
       //IdExist[i] = "testid" + i;
 
-      //console.log(IdExist)
-
       for(var k=0; k<num.length; k++){
         var tem = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].type;
             switch (tem) {
@@ -50,8 +48,8 @@
                     var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
                     //console.log(ta)
-                    TemV[i] += ta;  
-                    console.log(TemV)
+                    TemV[i] = ta;  
+                    //console.log(TemV)
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
