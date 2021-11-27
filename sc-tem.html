@@ -14,7 +14,8 @@
 <body>
 
 <div id="sev" style="height: 60%;width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
-
+    
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
 
 
@@ -73,15 +74,9 @@ const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashb
                     document.getElementById(Ht[i]).innerHTML = ht;
                     document.getElementById(Hu[i]).innerHTML = h;
 
-                case "linkQuality":
-                    var lqt = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var c = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(c)
-                    Cqt[i] = "cqt" + i;
-                    C[i] = "cq" + i;
-                    //console.log(C[i])
-                    document.getElementById(Cqt[i]).innerHTML = lqt;
-                    document.getElementById(C[i]).innerHTML = c;
+
+                    
+                    
 
                     
                 }
