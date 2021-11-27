@@ -49,9 +49,9 @@
                 case "temperature":
                     var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    console.log(ta)
-          
-          
+                    //console.log(ta)
+                    TemV[i] += ta;  
+                    console.log(TemV)
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
@@ -64,6 +64,8 @@
                 }
         }
     }
+        
+            console.log(TemV)
 
     }
   };     
