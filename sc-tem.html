@@ -34,17 +34,11 @@ const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashb
       var Hu = new Array(4);
       var Ht = new Array(4);
 
-      var Cqt = new Array(6);
-      var C = new Array(6);
-
-      var Et = new Array(3);
-      var Ev = new Array(3);
-
       //var curt= JSON.parse(e.data).msgContent.sensors[0].latest_observations[0].value;
      
 
       for (var i=0; i < 9; i++) {
-      var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
+      //var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
       var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
       //console.log(num.length)
       IdExist[i] = "testid" + i;
