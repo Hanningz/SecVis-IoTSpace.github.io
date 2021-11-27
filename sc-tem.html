@@ -36,10 +36,10 @@
      
 
       for (var i=0; i < 9; i++) {
-      //var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
+      var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
       var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
       //console.log(num.length)
-      IdExist[i] = "testid" + i;
+      //IdExist[i] = "testid" + i;
 
       //console.log(IdExist)
 
@@ -49,10 +49,8 @@
                 case "temperature":
                     var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(ta)
-                    TemVt[i] = "t" + i;
-                    TemV[i] = "temp" + i;
-                    //console.log(TemV[i])
+                    console.log(ta)
+          
           
 
                 case "humidity":
@@ -66,10 +64,6 @@
                 }
         }
     }
-    
-
-    console.log(ta)
-
 
     }
   };     
