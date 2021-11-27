@@ -48,7 +48,7 @@ const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashb
       var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
       //console.log(num.length)
       IdExist[i] = "testid" + i;
-      document.getElementById(IdExist[i]).innerHTML = obj;
+
       //console.log(IdExist)
 
       for(var k=0; k<num.length; k++){
@@ -61,8 +61,7 @@ const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashb
                     TemVt[i] = "t" + i;
                     TemV[i] = "temp" + i;
                     //console.log(TemV[i])
-                    document.getElementById(TemVt[i]).innerHTML = tat;
-                    document.getElementById(TemV[i]).innerHTML = ta;
+          
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
@@ -71,13 +70,6 @@ const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashb
                     Ht[i] = "ht" + i;
                     Hu[i] = "h" + i;
                     //console.log(TemV[i])
-                    document.getElementById(Ht[i]).innerHTML = ht;
-                    document.getElementById(Hu[i]).innerHTML = h;
-
-
-                    
-                    
-
                     
                 }
         }
