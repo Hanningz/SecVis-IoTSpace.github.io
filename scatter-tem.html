@@ -134,7 +134,7 @@
                 },
                 formatter: function (param) {
                     return '<div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 15px;padding-bottom: 1px;">Room:'
-                            + param.data[0] + ': ' + '</div><div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 12px; margin-top:6px;">' + 'Value - ' + param.data[2] +
+                            + param.data[0] + ': ' + '</div><div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 12px; margin-top:6px;">' + 'Value - ' + param.data[1] +
                             '</div>';
                     }
                 },
@@ -194,7 +194,7 @@
                 fontSize:15,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
@@ -219,7 +219,7 @@
                 fontSize:15,
                 formatter: function (param) {
                     
-                    return param.data[2];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
@@ -246,7 +246,7 @@
                 fontSize:18,
                 formatter: function (param) {
                     
-                    return param.data[2];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
