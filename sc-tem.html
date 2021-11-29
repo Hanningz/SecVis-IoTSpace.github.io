@@ -70,6 +70,14 @@
     console.log(TemV)
     console.log("test")
 
+    var datatt = new Array(4);
+    for(var d=0; d<TemV.length; d++){
+        var temp = TemV[d];
+        var di = [d,0,temp];
+        datatt.push(di);
+    }
+    console.log(datatt)
+   
    
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
@@ -84,7 +92,7 @@
         'New', 
     ];
     // prettier-ignore
-    var d1 = TemV[0];
+  
     const data =  [ 
     [0, 0, d1], 
     [1, 0, 39], 
