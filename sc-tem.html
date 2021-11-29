@@ -71,7 +71,17 @@
                 }
 
                 var dataT = TemV;
-                   console.log(dataT)
+                //console.log(dataT)
+                var v0= dataT[0];
+                var v1= dataT[1];
+                var v2= dataT[2];
+                var v3= dataT[3];
+                var dataSec= [ 
+                    [0, 0, v0], 
+                    [1, 0, v1], 
+                    [2, 0, v2], 
+                    [3, 0, v3], 
+                    ]
    
                     var chartDom = document.getElementById("sev");
                     var myChart = echarts.init(chartDom);
@@ -86,14 +96,8 @@
                      'New', 
                 ];
   
-                    var v1= dataT[0];
-                    var v0= dataT[1];
-                    const data =  [ 
-                    [0, 0, v1], 
-                    [1, 0, v0], 
-                    [2, 0, 39], 
-                    [3, 0, 39], 
-                    ]
+                   
+                    const data =  dataSec
                         .map(function (item) {
                         return [item[1], item[0], item[2] || '-'];
                     });
