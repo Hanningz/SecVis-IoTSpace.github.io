@@ -40,7 +40,7 @@
       var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
       var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
       //console.log(num.length)
-      //IdExist[i] = "testid" + i;
+      IdExist[i] = obj;
 
       for(var k=0; k<num.length; k++){
         var tem = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].type;
@@ -71,23 +71,29 @@
                 }
 
                 var dataT = TemV;
+                var id = IdExist;
                 //console.log(dataT)
                 var v0= dataT[0];
                 var v1= dataT[1];
                 var v2= dataT[2];
                 var v3= dataT[3];
+                var ID0= id[0];
+                var ID1= id[1];
+                var ID2= id[2];
+                var ID3= id[3];
+         
                 var data1= [ 
-                    [1, v0, "room1", 1], 
-                    [1, v1, "room1", 1]
+                    [1, v0, ID0, "room1", 1], 
+                    [1, v1, ID1, "room1", 1]
                     ];
                 var dataM= [ 
                    
-                    [2, v2, "room2", 2]
+                    [2, v2, ID2,"room2", 2]
                     
                     ];
 
                 var dataN= [ 
-                    [3, v3, "room3", 3]
+                    [3, v3, ID3,"room3", 3]
        
                    ];
 
@@ -128,7 +134,7 @@
                 },
                 formatter: function (param) {
                     return '<div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 15px;padding-bottom: 1px;">Room:'
-                            + param.data[0] + ': ' + '</div><div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 12px; margin-top:6px;">' + 'Value - ' + param.data[1] +
+                            + param.data[0] + ': ' + '</div><div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 12px; margin-top:6px;">' + 'Value - ' + param.data[2] +
                             '</div>';
                     }
                 },
@@ -204,7 +210,7 @@
             {
                 name: 'CO2-Sensors',
                 data: dataM,
-                symbol:symbols,
+              
                 emphasis: {
                 focus: 'series',
                 label: {
@@ -213,14 +219,14 @@
                 fontSize:15,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return param.data[2];
                 },
                 position: 'top'
             }
         },
                 //symbol: symbols,
                 type: 'scatter',
-                symbol:symbols,
+               
                 symbolSize: 18,
                 itemStyle: {
                     color: '#7cc0d5'
@@ -231,7 +237,7 @@
             {
                 name: 'TVOC-Sensors',
                 data: dataN,
-                symbol:symbols,
+              
                 emphasis: {
                 focus: 'series',
                 label: {
@@ -240,14 +246,14 @@
                 fontSize:18,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return param.data[2];
                 },
                 position: 'top'
             }
         },
                 //symbol: symbols,
                 type: 'scatter',
-                symbol:symbols,
+               
                 symbolSize: 18,
                 itemStyle: {
                     color: '#b096ba'
