@@ -78,7 +78,14 @@
    
     //console.log(TemV)
     var dataT = TemV;
-    console.log(dataT);
+    var DataSec;
+    for(var j=0; j<dataT.length; j++){
+         var value = dataT[j];
+         console.log(value);
+  
+         DataSec[j] = [j,0,value];
+    }
+    console.log(DataSec);
   
     
    
@@ -176,196 +183,6 @@
     };
     
     option && myChart.setOption(option);
-
-  };     
- 
-    
-
-    
-    </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>SecVis</title>
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
-
-</head>
-    
-<body class="horizontal-layout horizontal-menu navbar-sticky 2-columns   footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns"></body>
-
-<div id="sev" style="height: 70%;width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
-    
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
-<script type="text/javascript">
-    
-    
-   var TemV = new Array(4);
-   var IdExist = new Array(8);
-   
-   var Hu = new Array(4);
-   var Ht = new Array(4);
-
-    const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
-    
-   ws.onopen = function() {
-    //alert("Connection open ..."); 
-    ws.send('{"request": "GET_SENSORS"}');
-    ws.onmessage = function(e) {
-      //var curt= JSON.parse(e.data).msgContent.sensors[0].latest_observations[0].value;
-      for (var i=0; i < 9; i++) {
-      var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
-      var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
-
-      for(var k=0; k<num.length; k++){
-        var tem = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].type;
-            switch (tem) {
-                case "temperature":
-                    var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(ta)
-                    TemV.push(ta);  
-                    //console.log(TemV)
-
-                case "humidity":
-                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var h = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(h)
-                    Ht[i] = "ht" + i;
-                    Hu[i] = "h" + i;
-                    
-                }
-   
-          
-        }
-  
-          
-    } 
-        
-    }
-
-   
-    console.log(TemV)
-    var can = TemV;
-    //console.log(can)
-    //console.log(can[5])
-    var datatt = new Array(4);
-    for(var d=0; d<can.length; d++){
-        var di = can[d];
-       // var di = [d,0,temp];
-        datatt.push(di);
-    }
-    console.log(datatt)
-   
-    //-----------------------------------Heatmap for temperature-----------------------------------------------
-   
-    var chartDom = document.getElementById("sev");
-    var myChart = echarts.init(chartDom);
-    var option;
-    
-    // prettier-ignore
-    const rooms = [
-    '0', '1', '2', '3', '4', '5', '6'];
-    // prettier-ignore
-    const devices = [
-      'TemSensor1', 'TemSensor2', 'CO2', 'TVOC',
-        'New', 
-    ];
-    // prettier-ignore
-  
-    const data =  [ 
-    [0, 0, 23], 
-    [1, 0, 39], 
-    [2, 0, 39], 
-    [3, 0, 39], 
-    ]
-        .map(function (item) {
-        return [item[1], item[0], item[2] || '-'];
-    });
-
-    option = {
-      tooltip: {
-        position: 'top'
-      },
-      grid: {
-        height: '60%',
-        top: '10%'
-      },
-      xAxis: {
-      
-        type: 'category',
-        data: rooms,
-        splitArea: {
-          show: true
-        }
-      },
-      yAxis: {
-        type: 'category',
-        name:'Temperature',
-        data: devices,
-        splitArea: {
-          show: true
-        }
-      },
-      visualMap: {
-        min: 20,
-        max: 100,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        top: 290,
-        bottom: 10,
-        inRange: {
-        color: [
-        '#efeefb',
-        '#c0bef0',
-        '#b0aeed',
-       '#a09de9',
-        '#e48783',
-        ]
-      },
-      },
-      series: [
-        {
-          name: '',
-          type: 'heatmap',
-          fontSize: 2,
-          data: data,
-          label: {
-            show: true,
-            color: "#585858",
-            fontSize:10,
-          },
-         
-          emphasis: {
-             
-            itemStyle: {
-          
-              shadowBlur: 10,
-           
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
-    };
-    
-    option && myChart.setOption(option);
-
-
-    //-----------------------------------ScatterChart for Battery-----------------------------------------------
-
-
-
-
-
 
   };     
  
