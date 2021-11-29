@@ -17,6 +17,9 @@
     
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
+    
+    
+   var TemV = new Array(4);
 
     const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
     
@@ -26,7 +29,6 @@
     ws.onmessage = function(e) {
 
       var IdExist = new Array(8);
-      var TemV = new Array(4);
       var TemVt = new Array(4);
 
       var Hu = new Array(4);
