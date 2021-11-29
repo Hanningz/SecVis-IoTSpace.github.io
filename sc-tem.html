@@ -45,7 +45,7 @@
                     var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
                     //console.log(ta)
-                    TemV.push(ta);  
+                    TemV[i] = ta;
                     //console.log(TemV)
 
                 case "humidity":
@@ -68,9 +68,9 @@
 
    
     console.log(TemV)
-    var can = TemV;
-    console.log(can)
-    console.log(can[5])
+    //var can = TemV;
+    //console.log(can)
+    //console.log(can[5])
 
     var datatt = new Array(4);
     for(var d=0; d<TemV.length; d++){
@@ -105,7 +105,7 @@
         return [item[1], item[0], item[2] || '-'];
     });
 
-    console.log(data)
+    //console.log(data)
     option = {
       tooltip: {
         position: 'top'
