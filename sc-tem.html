@@ -51,9 +51,27 @@
                     //console.log(ta)
                     TemV[t] = ta;
                     t = t + 1;
+                  
+                    //console.log(TemV)
 
-                    var dataT = new Array();
-                    dataT.push(TemV[t]);
+                case "humidity":
+                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    HumV[index] = hum;
+                    index = index + 1;
+                    
+                case "battery_voltage":
+                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    //console.log(level)
+                    BatteryL[index1] = level;
+                    index1 = index1 + 1;
+                    
+                    
+                }
+
+                var dataT = TemV;
+                   console.log(dataT)
    
                     var chartDom = document.getElementById("sev");
                     var myChart = echarts.init(chartDom);
@@ -149,23 +167,6 @@
                     };
                     
                     option && myChart.setOption(option);
-
-                    
-                    //console.log(TemV)
-
-                case "humidity":
-                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    HumV[index] = hum;
-                    index = index + 1;
-                    
-                case "battery_voltage":
-                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(level)
-                    BatteryL[index1] = level;
-                    index1 = index1 + 1;
-                }
    
           
         }
