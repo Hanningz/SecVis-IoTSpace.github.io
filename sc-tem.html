@@ -70,13 +70,6 @@
     console.log(TemV)
     console.log("test")
 
-    var datat = new Array(4);
-    for(var d=0; d<TemV.length; d++){
-        var temp = TemV[d];
-        var data_item = [d,0,temp];
-        datat.push(data_item);
-    }
-    console.log(datat)
    
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
@@ -90,8 +83,8 @@
       'TemSensor1', 'TemSensor2', 'CO2', 'TVOC',
         'New', 
     ];
-
-
+    // prettier-ignore
+    var d1 = TemV[0];
     const data =  [ 
     [0, 0, d1], 
     [1, 0, 39], 
@@ -102,7 +95,7 @@
         return [item[1], item[0], item[2] || '-'];
     });
 
- 
+    console.log(data)
     option = {
       tooltip: {
         position: 'top'
