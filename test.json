@@ -1,39 +1,39 @@
 [
     {
-        "doneNum": 130,
-        "date": "2019-01"
+        "temValue": 21.3,
+        "time": "2021-01"
     }, {
-        "doneNum": 80,
-        "date": "2019-02"
+        "temValue": 25.6,
+        "time": "2021-02"
     }, {
-        "doneNum": 90,
-        "date": "2019-03"
+        "temValue": 12.6,
+        "time": "2021-03"
     }, {
-        "doneNum": 110,
-        "date": "2019-04"
+        "temValue": 15.7,
+        "time": "2021-04"
     }, {
-        "doneNum": 60,
-        "date": "2019-05"
+        "temValue": 21.2,
+        "time": "2021-05"
     }, {
-        "doneNum": 70,
-        "date": "2019-06"
+        "temValue": 19.8,
+        "time": "2021-06"
     }, {
-        "doneNum": 120,
-        "date": "2019-07"
+        "temValue": 16.7,
+        "time": "2021-07"
     }, {
-        "doneNum": 80,
-        "date": "2019-08"
+        "temValue": 23.2,
+        "time": "2021-08"
     }, {
-        "doneNum": 83,
-        "date": "2019-09"
+        "temValue": 25.8,
+        "time": "2021-09"
     }, {
-        "doneNum": 84,
-        "date": "2019-10"
+        "temValue": 26.7,
+        "time": "2021-10"
     }, {
-        "doneNum": 105,
-        "date": "2019-11"
+        "temValue": 24.3,
+        "time": "2021-11"
     }, {
-        "doneNum": 52,
-        "date": "2019-12"
+        "temValue": 22.6,
+        "time": "2021-12"
     }
 ]
