@@ -81,11 +81,16 @@
                     [1, v1, "room1", 1]
                     ];
                 var dataM= [ 
-                    [1, v0, "room1", 1], 
-                    [1, v1, "room1", 1], 
-                    [2, v2, "room2", 2], 
-                    [3, v3, "room3", 3], 
+                   
+                    [2, v2, "room2", 2]
+                    
                     ]
+
+                var dataN= [ 
+                   
+                   [2, v3, "room2", 3]
+                   
+                   ]
 
    
                 var dom = document.getElementById("sev");
@@ -199,7 +204,7 @@
            
             {
                 name: 'CO2-Sensors',
-                data: dataM[2],
+                data: dataM,
                 symbol:symbols,
                 emphasis: {
                 focus: 'series',
@@ -226,7 +231,7 @@
             },
             {
                 name: 'TVOC-Sensors',
-                data: dataM[3],
+                data: dataN,
                 symbol:symbols,
                 emphasis: {
                 focus: 'series',
@@ -264,11 +269,6 @@
     } 
         
     }
-   
-
-
-  
-    
   
   };     
  
