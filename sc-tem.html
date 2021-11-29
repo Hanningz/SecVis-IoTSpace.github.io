@@ -21,7 +21,9 @@
     
    var TemV = new Array(4);
    var IdExist = new Array(8);
-   
+   var HumV = new Array(4);
+   var BatteryL = new Array(2);
+    
    var Hu = new Array(4);
    var Ht = new Array(4);
    var t = 0;
@@ -53,15 +55,16 @@
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var h = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(h)
-                    Hu[i] = "h" + i;
+                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    HumV[t] = hum;
+                    t = t + 1;
                     
                 case "battery_voltage":
-                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    console.log(level)
-                    
+                    //console.log(level)
+                    BatteryL[t] = level;
+                    t = t + 1;
                 }
    
           
@@ -73,17 +76,15 @@
     }
    
     console.log(TemV)
-    //var can = TemV;
-    //console.log(can)
-    //console.log(can[5])
 
     var datatt = new Array(4);
     for(var d=0; d<TemV.length; d++){
         var temp = TemV[d];
+        console.log(temp)
         var di = [d,0,temp];
-        datatt.push(di);
+        datatt[d] = di;
     }
-    console.log(datatt)
+    
    
    
     var chartDom = document.getElementById("sev");
