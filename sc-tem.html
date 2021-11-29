@@ -27,7 +27,8 @@
    var Hu = new Array(4);
    var Ht = new Array(4);
    var t = 0;
-
+   var index = 0;
+   var index1 = 0;
     const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
     
    ws.onopen = function() {
@@ -56,15 +57,15 @@
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    HumV[t] = hum;
-                    t = t + 1;
+                    HumV[index] = hum;
+                    index = index + 1;
                     
                 case "battery_voltage":
                     var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
                     //console.log(level)
-                    BatteryL[t] = level;
-                    t = t + 1;
+                    BatteryL[index1] = level;
+                    index1 = index1 + 1;
                 }
    
           
@@ -76,13 +77,12 @@
     }
    
     console.log(TemV)
-
     var datatt = new Array(4);
     for(var d=0; d<TemV.length; d++){
-        var temp = TemV[d];
-        console.log(temp)
-        var di = [d,0,temp];
-        datatt[d] = di;
+        //var temp = TemV[d];
+        console.log(TemV[d])
+       // var di = [d,0,temp];
+       // datatt[d] = di;
     }
     
    
