@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>SecVis</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+
+</head>
+    
+<body>
+
+<div id="sev" style="height: 500%; width: 100%; margin-top: 60px; margin-left: 0px;"> </div>
+    
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+<script type="text/javascript">
+    
+    
+   var TemV = new Array(4);
+   var IdExist = new Array(8);
+   var HumV = new Array(4);
+   var BatteryL = new Array(1);
+    
+   var Hu = new Array(4);
+   var Ht = new Array(4);
+   var t = 0;
+   var index = 0;
+   var index1 = 0;
+    const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
+    
+   ws.onopen = function() {
+    //alert("Connection open ..."); 
+    ws.send('{"request": "GET_SENSORS"}');
+    ws.onmessage = function(e) {
+      //var curt= JSON.parse(e.data).msgContent.sensors[0].latest_observations[0].value;
+      for (var i=0; i < 9; i++) {
+      var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
+      var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
+      //console.log(num.length)
+      //IdExist[i] = "testid" + i;
+
+      for(var k=0; k<num.length; k++){
+        var tem = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].type;
+            switch (tem) {
+                case "temperature":
+                    var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    //console.log(ta)
+                    TemV[t] = ta;
+                    t = t + 1;
+                  
+                    //console.log(TemV)
+
+                case "humidity":
+                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    HumV[index] = hum;
+                    index = index + 1;
+                    
+                case "battery_voltage":
+                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    //console.log(level)
+                    BatteryL[index1] = level;
+                    index1 = index1 + 1;
+                    
+                    
+                }
+
+                var dataT = BatteryL;
+                //console.log(dataT)
+                var v0= dataT[0];
+               
+                var dataSL= [1, v0, "room1", 1];
+                
+             
+
+                var dom = document.getElementById("sev");
+       
+                var myChart = echarts.init(dom);
+                var app = {};
+                var symbols=['path://M682.666667 725.333333 341.333333 725.333333 341.333333 256 682.666667 256M711.253333 170.666667 640 170.666667 640 85.333333 384 85.333333 384 170.666667 312.746667 170.666667C281.6 170.666667 256 196.266667 256 227.413333L256 881.92C256 913.066667 281.6 938.666667 312.746667 938.666667L711.253333 938.666667C742.4 938.666667 768 913.066667 768 881.92L768 227.413333C768 196.266667 742.4 170.666667 711.253333 170.666667Z',
+                'path://M667.989333 169.984q24.021333 0 41.002667 16.981333t16.981333 41.002667l0 653.994667q0 24.021333-16.981333 40.021333t-41.002667 16l-312.021333 0q-24.021333 0-41.002667-16t-16.981333-40.021333l0-653.994667q0-24.021333 16.981333-41.002667t41.002667-16.981333l70.016 0 0-84.010667 171.989333 0 0 84.010667 70.016 0z'
+                    //console.log(data)
+                         
+ option1 = {
+            color:['#4A64DA', '#946db7'],
+            backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+                offset: 0,
+                color: '#ffffff'
+            }, {
+                offset: 1,
+                color: '#ffffff'
+            }]),
+            title: {
+                text: '' ,
+                left: '5%',
+                top: '3%'
+            },
+            legend: {
+                right: '10%',
+                top: '0%',
+                data: ['Dying','SimpleLeak 3.0','New-devices'],
+                backgroundcolor:"#ffffff"
+            },
+            grid: {
+                left: '8%',
+                top: '10%'
+            },
+           
+
+
+            tooltip: {
+                    backgroundColor: ['rgba(255,255,255,0.7)'],
+                    formatter: function (param) {
+                        return '<div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 15px;padding-bottom: 1px;">'
+                            + param.data[3] + ': ' + param.data[2] + '</div><div style="border-bottom: 0px solid rgba(255,255,255,.3); font-size: 12px; margin-top:6px;"><i class="bx bxs-battery text-primary align-middle"></i> ' + 'Battery - ' + param.data[1] +
+                            '</div>';
+                    }
+                },
+
+            xAxis: {
+                name: 'Rooms',
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                type: 'value',
+                interval:10,
+                min: 0,
+                max:45
+            },
+            yAxis: {
+                name: 'Battery Voltage',
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+               
+                type: 'value',
+			
+                interval:0.1,
+                min: 1.7,
+                max: 3.2
+                
+            },
+            series: [
+                   
+             
+                {
+                name: 'SimpleLeak 3.0',
+                data: dataSL,
+                symbol:symbols[1],
+                type: 'scatter',
+                symbolSize: 15,
+                emphasis: {
+                    focus: 'series',
+                    label: {
+                    show: true,
+                    fontSize:20,
+                    formatter: function (param) {
+                        return '';
+                    },
+                    position: 'top'
+                    }
+                },
+                itemStyle: {
+
+                normal:{
+                color:params=>{
+                switch(params.data[1]){
+                    case 3.1:
+                            return '#4A64DA';
+                        case 3.0:
+                            return '#4A64DA';
+                        case 2.9:
+                            return '#4A64DA';
+                        case 2.8:
+                            return '#6e83e1';
+                        case 2.7:
+                            return '#6e83e1';
+                        case 2.6:
+                            return '#a4b1ec';
+                        case 2.5:
+                            return '#a4b1ec';
+                        case 2.4:
+                            return '#f17900';
+                }
+
+                }
+                }
+//color: '#44A6C3'
+},
+
+
+                },
+           
+           
+                markLine: {
+                 data: [{name: '', yAxis: 2.4, color: "red"}],
+                 lineStyle: {
+            color: '#ff7171',
+            width: 2
+          }
+            },
+           
+           
+            }
+           
+           ]
+        };
+        
+        
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+   
+          
+        }
+  
+          
+    } 
+        
+    }
+  
+  };     
+ 
+    
+
+    
+    </script>
+
+</body>
+</html>
