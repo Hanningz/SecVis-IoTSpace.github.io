@@ -13,7 +13,7 @@
     
 <body>
 
-<div id="sev" style="width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
+<div id="sev" style="height: 100%;width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
     
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
@@ -40,7 +40,7 @@
       var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
       var num = JSON.parse(e.data).msgContent.sensors[i].latest_observations;
       //console.log(num.length)
-      //IdExist[i] = "testid" + i;
+      IdExist[i] = obj;
 
       for(var k=0; k<num.length; k++){
         var tem = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].type;
@@ -76,39 +76,37 @@
                 var v1= dataT[1];
                 var v2= dataT[2];
                 var v3= dataT[3];
+
                 var dataSec= [ 
                     [0, 0, v0], 
                     [1, 0, v1], 
                     [2, 0, v2], 
                     [3, 0, v3], 
                     ]
-   
-                    var chartDom = document.getElementById("sev");
-                    var myChart = echarts.init(chartDom);
-                    var option;
-    
-                    // prettier-ignore
-                    const rooms = [
+
+                var hrChart = echarts.init(document.getElementById("sev"));
+                const rooms = [
                     '0', '1', '2', '3', '4', '5', '6'];
                     // prettier-ignore
                     const devices = [
                       'TemSensor1', 'TemSensor2', 'CO2', 'TVOC',
                      'New', 
                 ];
-  
                    
                     const data =  dataSec
                         .map(function (item) {
                         return [item[1], item[0], item[2] || '-'];
                     });
 
+                function hrFun(data) {
+                    hrChart.setOption({
+
                     //console.log(data)
-                    option = {
                     tooltip: {
                         position: 'top'
                     },
                     grid: {
-                        height: '80%',
+                        height: '60%',
                         top: '10%'
                     },
                     xAxis: {
@@ -150,7 +148,7 @@
                         name: '',
                         type: 'heatmap',
                         fontSize: 2,
-                        data: data,
+                        data: dataSec,
                         label: {
                             show: true,
                             color: "#585858",
@@ -168,9 +166,12 @@
                         }
                         }
                     ]
-                    };
                     
-                    option && myChart.setOption(option);
+
+
+                }, true);
+            };
+
    
           
         }
