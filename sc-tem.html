@@ -238,7 +238,6 @@
                     //console.log(h)
                     Ht[i] = "ht" + i;
                     Hu[i] = "h" + i;
-           
                     
                 }
    
@@ -254,7 +253,7 @@
     console.log(TemV)
     var can = TemV;
     //console.log(can)
-    //console.log(can[2])
+    //console.log(can[5])
     var datatt = new Array(4);
     for(var d=0; d<can.length; d++){
         var di = can[d];
@@ -263,6 +262,7 @@
     }
     console.log(datatt)
    
+    //-----------------------------------Heatmap for temperature-----------------------------------------------
    
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
@@ -356,6 +356,14 @@
     };
     
     option && myChart.setOption(option);
+
+
+    //-----------------------------------ScatterChart for Battery-----------------------------------------------
+
+
+
+
+
 
   };     
  
