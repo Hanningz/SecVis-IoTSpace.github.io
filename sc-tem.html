@@ -13,7 +13,7 @@
     
 <body class="horizontal-layout horizontal-menu navbar-sticky 2-columns   footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns"></body>
 
-<div id="sev" style="height: 70%;width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
+<div id="sev" style="height: 100%;width: 100%; margin-top: 20px; margin-left: 0px;"> </div>
     
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
@@ -51,101 +51,104 @@
                     //console.log(ta)
                     TemV[t] = ta;
                     t = t + 1;
-                     
-   
-    var chartDom = document.getElementById("sev");
-    var myChart = echarts.init(chartDom);
-    var option;
-    
-    // prettier-ignore
-    const rooms = [
-    '0', '1', '2', '3', '4', '5', '6'];
-    // prettier-ignore
-    const devices = [
-      'TemSensor1', 'TemSensor2', 'CO2', 'TVOC',
-        'New', 
-    ];
-    // prettier-ignore
-  
-    const data =  [ 
-    [0, 0, ta], 
-    [1, 0, 39], 
-    [2, 0, 39], 
-    [3, 0, 39], 
-    ]
-        .map(function (item) {
-        return [item[1], item[0], item[2] || '-'];
-    });
 
-    //console.log(data)
-    option = {
-      tooltip: {
-        position: 'top'
-      },
-      grid: {
-        height: '60%',
-        top: '10%'
-      },
-      xAxis: {
-      
-        type: 'category',
-        data: rooms,
-        splitArea: {
-          show: true
-        }
-      },
-      yAxis: {
-        type: 'category',
-        name:'Temperature',
-        data: devices,
-        splitArea: {
-          show: true
-        }
-      },
-      visualMap: {
-        min: 20,
-        max: 100,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        top: 290,
-        bottom: 10,
-        inRange: {
-        color: [
-        '#efeefb',
-        '#c0bef0',
-        '#b0aeed',
-       '#a09de9',
-        '#e48783',
-        ]
-      },
-      },
-      series: [
-        {
-          name: '',
-          type: 'heatmap',
-          fontSize: 2,
-          data: data,
-          label: {
-            show: true,
-            color: "#585858",
-            fontSize:10,
-          },
-         
-          emphasis: {
-             
-            itemStyle: {
-          
-              shadowBlur: 10,
-           
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
-    };
+                    var dataT = new Array();
+                    dataT.push(TemV[t]);
+   
+                    var chartDom = document.getElementById("sev");
+                    var myChart = echarts.init(chartDom);
+                    var option;
     
-    option && myChart.setOption(option);
+                    // prettier-ignore
+                    const rooms = [
+                    '0', '1', '2', '3', '4', '5', '6'];
+                    // prettier-ignore
+                    const devices = [
+                      'TemSensor1', 'TemSensor2', 'CO2', 'TVOC',
+                     'New', 
+                ];
+  
+                    var v1= dataT[0];
+                    var v0= dataT[1];
+                    const data =  [ 
+                    [0, 0, v1], 
+                    [1, 0, v0], 
+                    [2, 0, 39], 
+                    [3, 0, 39], 
+                    ]
+                        .map(function (item) {
+                        return [item[1], item[0], item[2] || '-'];
+                    });
+
+                    //console.log(data)
+                    option = {
+                    tooltip: {
+                        position: 'top'
+                    },
+                    grid: {
+                        height: '60%',
+                        top: '10%'
+                    },
+                    xAxis: {
+                    
+                        type: 'category',
+                        data: rooms,
+                        splitArea: {
+                        show: true
+                        }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        name:'Temperature',
+                        data: devices,
+                        splitArea: {
+                        show: true
+                        }
+                    },
+                    visualMap: {
+                        min: 20,
+                        max: 100,
+                        calculable: true,
+                        orient: 'horizontal',
+                        left: 'center',
+                        top: 290,
+                        bottom: 10,
+                        inRange: {
+                        color: [
+                        '#efeefb',
+                        '#c0bef0',
+                        '#b0aeed',
+                    '#a09de9',
+                        '#e48783',
+                        ]
+                    },
+                    },
+                    series: [
+                        {
+                        name: '',
+                        type: 'heatmap',
+                        fontSize: 2,
+                        data: data,
+                        label: {
+                            show: true,
+                            color: "#585858",
+                            fontSize:10,
+                        },
+                        
+                        emphasis: {
+                            
+                            itemStyle: {
+                        
+                            shadowBlur: 10,
+                        
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                        }
+                    ]
+                    };
+                    
+                    option && myChart.setOption(option);
 
                     
                     //console.log(TemV)
@@ -172,9 +175,9 @@
         
     }
    
-    console.log(TemV)
-        var arr1=JSON.stringify(TemV);
-  var arr2=JSON.parse(arr1);
+    //console.log(TemV)
+        //var arr1=JSON.stringify(TemV);
+  //var arr2=JSON.parse(arr1);
    // var dataT = TemV;
     //console.log(arr1)
        
