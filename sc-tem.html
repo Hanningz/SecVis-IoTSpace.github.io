@@ -20,20 +20,17 @@
     
     
    var TemV = new Array(4);
+   var IdExist = new Array(8);
+   
+   var Hu = new Array(4);
+   var Ht = new Array(4);
 
     const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
     
-    ws.onopen = function() {
+   ws.onopen = function() {
     //alert("Connection open ..."); 
     ws.send('{"request": "GET_SENSORS"}');
     ws.onmessage = function(e) {
-
-      var IdExist = new Array(8);
-      var TemVt = new Array(4);
-
-      var Hu = new Array(4);
-      var Ht = new Array(4);
-
       //var curt= JSON.parse(e.data).msgContent.sensors[0].latest_observations[0].value;
       for (var i=0; i < 9; i++) {
       var obj = JSON.parse(e.data).msgContent.sensors[i].device_id;
@@ -74,9 +71,13 @@
     
     //console.log(TemV)
     }
-      //console.log("test")
+    
+    console.log(TemV)
+    console.log("test")
   };     
  
+    
+   
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
     var option;
