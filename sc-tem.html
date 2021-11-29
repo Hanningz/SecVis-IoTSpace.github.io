@@ -54,33 +54,22 @@
                     //console.log(h)
                     Ht[i] = "ht" + i;
                     Hu[i] = "h" + i;
-                    //console.log(TemV[i])
+           
                     
                 }
-         //console.log(TemV)
-          
-           //console.log("test")
+   
           
         }
-         
-        //  console.log(TemV)
+  
           
     } 
         
-   
-    
-    //console.log(TemV)
     }
 
    
     console.log(TemV)
     console.log("test")
 
-
-
-  };     
- 
-    
    
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
@@ -96,7 +85,7 @@
     ];
     // prettier-ignore
     const data =  [ 
-    [0, 0, 28], 
+    [0, 0, TemV[0]], 
     [1, 0, 39], 
     [2, 0, 39], 
     [3, 0, 39], 
@@ -104,6 +93,8 @@
         .map(function (item) {
         return [item[1], item[0], item[2] || '-'];
     });
+
+    console.log(data)
     option = {
       tooltip: {
         position: 'top'
@@ -172,6 +163,11 @@
     };
     
     option && myChart.setOption(option);
+
+  };     
+ 
+    
+
     
     </script>
 
