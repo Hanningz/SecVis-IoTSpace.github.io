@@ -51,41 +51,7 @@
                     //console.log(ta)
                     TemV[t] = ta;
                     t = t + 1;
-                    
-                    //console.log(TemV)
-
-                case "humidity":
-                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    HumV[index] = hum;
-                    index = index + 1;
-                    
-                case "battery_voltage":
-                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
-                    var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    //console.log(level)
-                    BatteryL[index1] = level;
-                    index1 = index1 + 1;
-                }
-   
-          
-        }
-  
-          
-    } 
-        
-    }
-   
-    console.log(TemV)
-        var arr1=JSON.stringify(TemV);
-  var arr2=JSON.parse(arr1);
-   // var dataT = TemV;
-    console.log(arr1)
-       
-
-  
-    
-   
+                     
    
     var chartDom = document.getElementById("sev");
     var myChart = echarts.init(chartDom);
@@ -102,7 +68,7 @@
     // prettier-ignore
   
     const data =  [ 
-    [0, 0, 23], 
+    [0, 0, ta], 
     [1, 0, 39], 
     [2, 0, 39], 
     [3, 0, 39], 
@@ -181,6 +147,41 @@
     
     option && myChart.setOption(option);
 
+                    
+                    //console.log(TemV)
+
+                case "humidity":
+                    var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    HumV[index] = hum;
+                    index = index + 1;
+                    
+                case "battery_voltage":
+                    var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
+                    var level = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
+                    //console.log(level)
+                    BatteryL[index1] = level;
+                    index1 = index1 + 1;
+                }
+   
+          
+        }
+  
+          
+    } 
+        
+    }
+   
+    console.log(TemV)
+        var arr1=JSON.stringify(TemV);
+  var arr2=JSON.parse(arr1);
+   // var dataT = TemV;
+    //console.log(arr1)
+       
+
+  
+    
+  
   };     
  
     
