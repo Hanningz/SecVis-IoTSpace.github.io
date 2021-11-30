@@ -18,18 +18,14 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 <script type="text/javascript">
     
-    
-   var TemV = new Array(4);
    var IdExist = new Array(8);
    var HumV = new Array(4);
    var BatteryL = new Array(2);
-    
-   var Hu = new Array(4);
    var Ht = new Array(4);
    var t = 0;
    var index = 0;
    var index1 = 0;
-    const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
+   const ws = new WebSocket('wss://iot-space.solutioncompass.fi:25120/ws/alertdashboard/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjZXJ0X2NuIjoiMDRiMmI2ZWQtODljMC00OGJlLWE4OGEtOGM5YmYxNDY0YTk2In0.-rGQwKGzzfkk_rxr38A1hTP9S1A_SALDCJLFSHMAVag/dashboard1/');
     
    ws.onopen = function() {
     //alert("Connection open ..."); 
@@ -49,16 +45,16 @@
                     var tat = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var ta = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
                     //console.log(ta)
-                    TemV[t] = ta;
-                    t = t + 1;
+                    //TemV[t] = ta;
+                    //t = t + 1;
                   
                     //console.log(TemV)
 
                 case "humidity":
                     var ht = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
                     var hum = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].value;
-                    HumV[index] = hum;
-                    index = index + 1;
+                    HumV[t] = hum;
+                    t = t + 1;
                     
                 case "battery_voltage":
                     var bv = JSON.parse(e.data).msgContent.sensors[i].latest_observations[k].time;    
@@ -71,8 +67,8 @@
                 }
 
                 var dataT = HumV;
-                var id = IdExist;
                 console.log(dataT)
+                var id = IdExist;
                 var v0= dataT[0];
                 var v1= dataT[1];
                 var v2= dataT[2];
