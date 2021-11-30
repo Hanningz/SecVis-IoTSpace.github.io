@@ -72,7 +72,7 @@
 
                 var dataT = HumV;
                 var id = IdExist;
-                //console.log(dataT)
+                console.log(dataT)
                 var v0= dataT[0];
                 var v1= dataT[1];
                 var v2= dataT[2];
@@ -184,7 +184,7 @@
                 name: 'Temp-Sensors',
                 data: data1,
                 type: 'scatter',
-      
+                symbol:symbols,
                 symbolSize: 18,
                 emphasis: {
                 focus: 'series',
@@ -210,7 +210,7 @@
             {
                 name: 'CO2-Sensors',
                 data: dataM,
-              
+                symbol:symbols,
                 emphasis: {
                 focus: 'series',
                 label: {
@@ -237,7 +237,7 @@
             {
                 name: 'TVOC-Sensors',
                 data: dataN,
-              
+                symbol:symbols,
                 emphasis: {
                 focus: 'series',
                 label: {
