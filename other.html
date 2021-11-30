@@ -11,7 +11,7 @@
         <div id="main" class="col-md-12  col-sm-12 col-xs-12" style="height: 400px;"></div>
         <script>
             
-             var names = [];    
+             var time = [];    
              var series = [];
             $.ajax({
                 url: "test.json",
@@ -21,18 +21,18 @@
                     
             
             $.each(data, function (index, item) {
-                names.push(item.time);    
+                time.push(item.time);    
                 series.push(item.temValue);
             });
             
             console.log(JSON.stringify(data))
-            hrFun(data);
+            Chart(data);
 
                 },
             });
            
             var hrChart = echarts.init(document.getElementById("main"));
-            function hrFun(data) {
+            function Chart(data) {
                 hrChart.setOption({
                     color: ['#3398DB'],
                     tooltip: {
@@ -52,7 +52,7 @@
                     },
                     xAxis: [{
                         type: 'category',
-                        data: names
+                        data: time
                     }],
                     yAxis: [{ 
                         type: 'value',
@@ -61,7 +61,7 @@
                         max: 50,
                         min: 0,
                         splitNumber: 20,
-                        boundaryGap: [0.2, 0.2]
+                        boundaryGap: [0.8, 0.8]
                     }],
                     series: [{
                         name: 'Temperature',
