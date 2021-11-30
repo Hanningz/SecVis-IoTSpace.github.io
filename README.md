@@ -5,3 +5,4 @@ index.html - The overview of the design
 
 scatter.html - The code for scatter chart only, showing how this scatter chart is being rendered in HTML page.
 
+other.html/test.json - An simple example of line chart, getting data from a JSON file.
