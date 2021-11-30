@@ -180,7 +180,7 @@
                 fontSize:15,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
@@ -196,6 +196,7 @@
             {
                 name: 'CO2-Sensors',
                 data: dataM,
+                type: 'scatter',
                 symbol:symbols,
                 emphasis: {
                 focus: 'series',
@@ -205,14 +206,12 @@
                 fontSize:15,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
         },
-                //symbol: symbols,
-                type: 'scatter',
-                symbol:symbols,
+               
                 symbolSize: 18,
                 itemStyle: {
                     color: '#7cc0d5'
@@ -223,6 +222,7 @@
             {
                 name: 'TVOC-Sensors',
                 data: dataN,
+                type: 'scatter',
                 symbol:symbols,
                 emphasis: {
                 focus: 'series',
@@ -232,15 +232,13 @@
                 fontSize:18,
                 formatter: function (param) {
                     
-                    return param.data[1];
+                    return "ID:" + param.data[2];
                 },
                 position: 'top'
             }
         },
                 //symbol: symbols,
-                type: 'scatter',
-                symbol:symbols,
-                symbolSize: 18,
+           
                 itemStyle: {
                     color: '#b096ba'
                     }
