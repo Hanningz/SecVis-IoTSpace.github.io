@@ -8,10 +8,24 @@ scatter.html - The code for scatter chart only, showing how this scatter chart i
 other.html/test.json - An simple example of line chart, getting data from a JSON file.
 
 
-Step 1: Add Echarts to your Project
+Data format for each 
 
--	For HTML page, add the link to use the echart libarary, the Echarts is the only external dependency
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+ 
 
-Step 2: All visualization code is in JS file
+[Device type index, Room number, Temperature value] 
 
+ 
+
+Device type index -> using 0, 1,2 for different device types, integer type 
+
+Room number -> room number (correlate to the X Axis), integer type 
+
+Temperature value -> floating type 
+
+ 
+
+Examples:  
+
+[0, 1, 22.9] 
+
+[1, 2, 26.7] 
