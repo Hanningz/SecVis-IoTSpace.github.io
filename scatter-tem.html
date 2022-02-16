@@ -19,12 +19,12 @@
 <script type="text/javascript">
     
     
-   var TemV = new Array(4);
+   var TemV = new Array(4); //temperature value 
    var IdExist = new Array(8);
    var HumV = new Array(4);
    var BatteryL = new Array(2);
     
-   var Hu = new Array(4);
+   var Hu = new Array(4); //humidity value 
    var Ht = new Array(4);
    var t = 0;
    var index = 0;
@@ -95,10 +95,10 @@
                 var dataN= [ 
                     [3, v3, ID3,"room3", 3]
        
-                   ];
+                   ]; //for data format shown in visualization 
 
    
-                var dom = document.getElementById("sev");
+                var dom = document.getElementById("sev"); //rendering the visualization to the html page
 
                 var myChart = echarts.init(dom);
                 var app = {};
@@ -224,7 +224,7 @@
                 position: 'top'
             }
         },
-                //symbol: symbols,
+                //symbol: symbols, 
                 type: 'scatter',
                
                 symbolSize: 18,
