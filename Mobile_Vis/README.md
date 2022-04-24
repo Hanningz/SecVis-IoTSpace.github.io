@@ -25,9 +25,6 @@ Build Project Capacitor
 `npx cap open android | npx cap open ios`
 
 --------------------
-#### Screenshort
-![img](screenshort/70962191_2565110200199322_2774430619881439232_n.jpg)
-![img](screenshort/71690417_2565110260199316_7303456432169418752_n.jpg)
 
 #### Resources referrents
 https://www.chartjs.org/
