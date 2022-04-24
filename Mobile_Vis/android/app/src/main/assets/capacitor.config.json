@@ -1,7 +1,0 @@
-{
-  "appId": "com.ionic.chart",
-  "appName": "ionic-chart",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}
