@@ -1,0 +1,251 @@
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+
+<ion-content>
+	<ion-toolbar>
+		
+  <h1 style="color:#5A5A89; font-size: 18px; font-weight: bold; margin-left: 16px; margin-bottom: 30px; margin-top: 26px;">Room A012</h1>
+
+	<ion-buttons slot="end">
+    <ion-button class="bordered" fill="solid" color="light">
+      <ion-icon style="color:#f77797;" name="thermometer"></ion-icon><ion-label style="font-weight: bold; color:#f77797;">39.1°C</ion-label>
+    </ion-button>
+    <ion-button class="bordered" fill="solid" color="light">
+      <ion-icon style="color:#a09c9c;" name="water"></ion-icon><ion-label color="dark">...</ion-label>
+    </ion-button>
+  </ion-buttons>
+	
+	</ion-toolbar>
+
+  <div class="containers">
+
+    <ion-item lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <ion-button color="light" fill="clear">
+              <ion-icon size="large" slot="icon-only" name="notifications"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="7">
+            <ion-label>
+							<h4>Smoke Alarm</h4>
+							
+						</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button color="dark" fill="clear">
+              <ion-icon slot="icon-only" size="large" name="call" style="color: #dadada;"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </div>
+
+  <h1 style="color:#5A5A89; font-size: 20px; font-weight: bold; margin-left: 16px; margin-bottom: 6px; margin-top: 10px;">Devices</h1>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides [options]="categories">
+
+          <ion-slide>
+            <ion-card class="category" color="light">
+              <ion-card-header class="ion-text-center">
+                <ion-icon size="large" name="warning" color="warning"></ion-icon>
+                <ion-card-title style="color: #393954; font-size: 16px; margin-bottom: 8px;">Detectify</ion-card-title>
+                <ion-card-subtitle style="color: #f77797; font-size: 12px;">Offline</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="category" color="light">
+              <ion-card-header class="ion-text-center">
+                <ion-icon size="large" name="checkmark-circle" style="color:#72c789;"></ion-icon>
+                <ion-card-title style="color: #393954; font-size: 16px; margin-bottom: 8px;">Airwits</ion-card-title>
+                <ion-card-subtitle style="color: #9ba2b4; font-size: 12px;">Connected</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="category" color="light">
+              <ion-card-header class="ion-text-center">
+                <ion-icon size="large" name="checkmark-circle" style="color:#72c789;"></ion-icon>
+                <ion-card-title style="color: #393954; font-size: 16px; margin-bottom: 8px;">LeakDe</ion-card-title>
+                <ion-card-subtitle style="color: #9ba2b4; font-size: 12px;">Connected</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h1 style="color:#5A5A89; font-size: 20px; font-weight: bold; margin-left: 16px; margin-bottom: 10px; margin-top: 16px;">Security Events</h1>
+
+  <div class="container">
+
+    <ion-item lines="none">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <ion-button color="light" fill="clear">
+              <ion-icon slot="icon-only" name="warning" style="color:#f77797;" size="large"></ion-icon>
+            </ion-button>
+           
+          </ion-col>
+          <ion-col size="7">
+            <ion-label>
+							<h4 style="color: #393954; font-size: 14px; font-weight:bold;">Invalid private key</h4>
+							<h6>Detectify device</h6>
+						</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button color="danger" fill="clear">
+              <ion-icon style="color:#726d6d;" name="chevron-forward"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item lines="none"> 
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <ion-button color="light" fill="clear">
+              <ion-icon size="large" name="warning" color="warning"></ion-icon>
+            </ion-button>
+            
+          </ion-col>
+          <ion-col size="7">
+            <ion-label>
+							<h4 style="color: #393954; font-size: 14px; font-weight:bold;">Communication failure</h4>
+							<h6>Detectify device</h6>
+						</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button color="danger" fill="clear">
+              <ion-icon style="color:#726d6d;" name="chevron-forward"></ion-icon>
+              
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item lines="none"> 
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+            <ion-button color="light" fill="clear">
+              <ion-icon slot="icon-only" name="warning" style="color: #9f9fbd;" size="large"></ion-icon>
+            </ion-button>
+            
+          </ion-col>
+          <ion-col size="7">
+            <ion-label>
+							<h4 style="color: #393954; font-size: 14px; font-weight:bold;">Suspend subscription</h4>
+							<h6>Airwits device</h6>
+						</ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button color="danger" fill="clear">
+              <ion-icon style="color:#726d6d;" name="chevron-forward"></ion-icon>
+              
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </div>
+
+
+  <h1 style="color:#5A5A89; font-size: 20px; font-weight: bold; margin-left: 16px; margin-bottom: 10px; margin-top: 16px;">Overview</h1>
+
+
+
+<div class="slides ion-margin-bottom">
+  <ion-slides [options]="slidesOptions">
+
+    <ion-slide>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title class="title" style="font-size: 16px; color: #ABAFBA; margin-right: 160px;">Alarms Summary</ion-card-title>
+          <ion-card-subtitle></ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+       
+          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"[legend]="barChartLegend" [chartType]="barChartType"></canvas>
+          <ion-icon slot="icon-only" size="large" name="arrow-back" style="margin-top: 10px; color: #e9ecf7;"></ion-icon>
+
+      </ion-card-content>
+      </ion-card>
+ 
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title class="title" style="font-size: 16px; color: #ABAFBA; margin-right: 160px;">Alarms Summary</ion-card-title>
+          <ion-card-subtitle></ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+       
+        test for data..
+        
+
+      </ion-card-content>
+      </ion-card>
+ 
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card color="light"> 
+        <ion-card-header>
+          <ion-card-title class="title" style="font-size: 16px; color: #ABAFBA; margin-right: 160px;">Security Alerts</ion-card-title>
+        
+          <ion-card-subtitle></ion-card-subtitle>
+          <ion-icon className="center-right" slot="icon-only" name="ellipsis-vertical" color="danger"></ion-icon>
+        </ion-card-header>
+        <ion-card-content>
+         
+          <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [chartType]="lineChartType"></canvas>
+          <ion-icon slot="icon-only" size="large" name="arrow-forward" style="margin-top: 10px; color: #e9ecf7;"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+ 
+    </ion-slide>
+
+
+    <ion-slide>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title class="title" style="font-size: 16px; color: #ABAFBA; margin-right: 160px;">Security Summary</ion-card-title>
+          <ion-card-subtitle></ion-card-subtitle>
+
+        </ion-card-header>
+        <ion-card-content>
+        
+          <canvas class="spe" baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"[chartType]="doughnutChartType"></canvas>
+          <ion-icon slot="icon-only" size="large" name="arrow-back" style="margin-top: 10px; color: #e9ecf7;"></ion-icon>
+      </ion-card-content>
+      </ion-card>
+ 
+    </ion-slide>
+
+  
+  </ion-slides>
+</div>
+
+ 
+</ion-content>

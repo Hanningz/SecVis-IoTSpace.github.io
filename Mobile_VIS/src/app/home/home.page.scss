@@ -1,0 +1,176 @@
+.fab[mini] {
+    margin: 8px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+
+
+on-header {
+
+    ion-toolbar, ion-item {
+      
+      --background: #f1f5f8;
+      background: #f1f5f8;
+      
+    }
+  
+    ion-toolbar {
+      .bordered {
+        --border-radius: 0 0 10px 10px;
+        --box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #FFFFFF;
+      }
+    }
+  
+    ion-item {
+      h3 {
+        font-weight: 700;
+        font-size: 14px;
+      }
+  
+      p {
+        font-weight: 500;
+        font-size: 14px;
+      }
+  
+    }
+  
+  }
+  
+ .slide {
+  background-color: #f8f8f8;
+  padding: 4px 2px 2px 2px;
+  border-radius: 0 0 28px 28px;
+
+}
+
+
+canvas{
+
+  width:316px !important;
+  height: 170px !important;
+  
+}
+.spe {
+
+  width:100% !important;
+  height: 100% !important;
+}
+
+
+ion-card-header { position: relative }
+.center-right{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+
+
+ion-content {
+  
+  
+  .slides {
+  
+    padding: 0px 0px 0px 0px;
+    border-radius: 0 0 28px 28px;
+   
+  }
+
+  ion-card {
+
+    
+      width: 120%;
+      height: 120%;
+      box-shadow: none;
+      border-radius: 14px;
+      padding-right: 0px;
+
+      
+    }
+
+  .tem{ 
+    color: #FB8F66;
+
+  }
+
+
+  .container {
+    padding: 6px 20px;
+    color: #5A5A89;
+
+    ion-item {
+      --background: #f3f5fa;
+      padding: 0;
+      margin: 14px 0;
+      --border-radius: 14px;
+      color: #212131;
+      font-weight: 600;
+
+      ion-label {
+        padding: 6px 0;
+        
+        h4 {
+          font-weight: 500;
+          font-size: 16px;
+        }
+        h6 {
+          color: #9ba2b4;
+        }
+      }
+
+    }
+
+    h2 {
+      padding-bottom: 8px;
+    }
+
+  }
+
+  .containers {
+    padding: 6px 20px;
+    color: #fff;
+
+    ion-item {
+      --background: #DF4048;
+      
+      padding: 0;
+      margin: 6px 0;
+      --border-radius: 14px;
+      color: #FFFFFF;
+      font-weight: 600;
+
+      ion-label {
+        padding: 6px 0;
+        
+        h4 {
+          font-weight: bold;
+          font-size: 23px;
+        }
+        h6 {
+          color: #FFFFFF;
+        }
+      }
+
+    }
+
+    h2 {
+      padding-bottom: 8px;
+    }
+
+  }
+
+}
+
+ion-icon {
+
+  color:#e8ebf8;
+  
+}
+
+
+
+
+
+
+
